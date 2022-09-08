@@ -31,7 +31,7 @@ export const Register = () => {
                         localStorage.setItem("om_token", res.token)
                         // added current user property
                         localStorage.setItem("current_user", res.current_user)
-                        navigate("/games")
+                        navigate("/home")
                     }
                 })
         } else {

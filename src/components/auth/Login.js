@@ -22,7 +22,7 @@ export const Login = () => {
                     localStorage.setItem("om_token", res.token)
                     // added current user property
                     localStorage.setItem("current_user", res.current_user)
-                    navigate("/games")
+                    navigate("/home")
                 }
                 else {
                     invalidDialog.current.showModal()
@@ -38,7 +38,7 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Level Up</h1>
+                    <h1>Organize Me</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputUsername"> Username </label>
