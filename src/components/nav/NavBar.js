@@ -5,7 +5,7 @@ export const NavBar = () => {
     const navigate = useNavigate()
     return (
         <ul className="navbar">
-            <Link className="navbar__link" to="/Rooms">
+            <Link className="navbar__link" to="/rooms">
                 <li className="navbar__item">
                     Rooms
                 </li>
