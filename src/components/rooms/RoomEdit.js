@@ -6,7 +6,7 @@ import { editRoom, getSingleRoom } from "../../managers/RoomManager"
 export const RoomEdit = () => {
     const navigate = useNavigate()
     const { roomId } = useParams()
-    console.log(roomId)
+    
     const [updateRoom, setUpdateRoom] = useState({})
 
     useEffect(() => {
