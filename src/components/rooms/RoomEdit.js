@@ -68,7 +68,7 @@ export const RoomEdit = () => {
                     }
                     editRoom(roomId, updatedRoom)
                         .then(() => navigate(`/rooms/${roomId}`))
-                }}>Create Room</button>
+                }}>Edit Room</button>
             </form >
         </>
     )
