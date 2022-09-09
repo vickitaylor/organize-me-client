@@ -17,3 +17,15 @@ export const getSingleRoom = (roomId) => {
     })
         .then(res => res.json())
 }
+
+export const createRoom = (room) => {
+    return fetch(`http://localhost:8000/rooms`, {
+        method: "POST",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`,
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify(room)
+    })
+    .then(res => res.json())
+}
