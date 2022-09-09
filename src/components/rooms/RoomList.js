@@ -17,14 +17,17 @@ export const RoomList = () => {
     )
 
     return (
-        <article>
-            {
-                rooms.map(room => {
-                    return <section key={`room--${room.id}`} className="room">
-                        <Link to={`${room.id}`} >{room.name}</Link>
-                    </section>
-                })
-            }
-        </article>
+        <>
+            <article>
+                {
+                    rooms.map(room => {
+                        return <section key={`room--${room.id}`} className="room">
+                            <Link to={`${room.id}`} >{room.name}</Link>
+                        </section>
+                    })
+                }
+            </article>
+            <button onClick={evt => { navigate("create")}}>Create New Room</button>
+        </>
     )
 }
