@@ -6,6 +6,7 @@ import { Register } from "../components/auth/Register"
 import { RoomList } from "../components/rooms/RoomList"
 import { RoomForm } from "../components/rooms/RoomForm"
 import { RoomEdit } from "../components/rooms/RoomEdit"
+import { EventList } from "../components/events/EventList"
 
 export const ApplicationViews = () => {
     return <>
@@ -16,6 +17,7 @@ export const ApplicationViews = () => {
                 <Route path="/rooms" element={< RoomList />} />
                 <Route path="/rooms/create" element={< RoomForm />} />
                 <Route path="/rooms/edit/:roomId" element={< RoomEdit />} />
+                <Route path="/events" element={< EventList />} />
             </Route>
         </Routes>
     </>
