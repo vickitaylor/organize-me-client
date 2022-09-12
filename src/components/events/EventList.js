@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getCurrentUserEvents } from "../../managers/EventManager"
 import "./Event.css"
 
@@ -12,20 +12,6 @@ export const EventList = () => {
             .then(setEvents)
     }, [])
 
-    const convertTime = (time) => {
-        const timeArr = time.split(":")
-        
-        if (timeArr[0] === 0) {
-            return `12:${timeArr[1]} AM`
-        } else if (timeArr[0] < 12) {
-            return `${timeArr[0]}:${timeArr[1]} AM`
-        } else if (timeArr[0] === "12") {
-            return `${timeArr[0]}:${timeArr[1]} PM`
-        } else {
-            return `${timeArr[0]- 12}:${timeArr[1]} PM`
-        }
-    }
-
     return (
         <>
             <h2>My Events</h2>
@@ -36,8 +22,8 @@ export const EventList = () => {
                     events.map(event => {
                         return <section key={`event--${event.id}`} className="event">
                             <ul>
-                                <li className="event_list">Event: {event.title}</li>
-                                <li className="event_list">Date: {new Date(event.date).toLocaleDateString('en-US', { timeZone: 'UTC'})} at {convertTime(event.time)}</li>
+                                <Link to={`edit/${event.id}`}><li className="event_list">Event: {event.title}</li></Link>
+                                <li className="event_list">Date: {event.readable_date} at {event.readable_time}</li>
                             </ul>
                         </section>
                     })
