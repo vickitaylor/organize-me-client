@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { getCurrentUserEvents } from "../../managers/EventManager"
 import "./Event.css"
 
 export const EventList = () => {
-
+    const navigate = useNavigate()
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -29,6 +30,7 @@ export const EventList = () => {
         <>
             <h2>My Events</h2>
 
+            <button onClick={(()=> navigate(`new`))}>New Event</button>
             <article>
                 {
                     events.map(event => {
