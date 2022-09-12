@@ -1,3 +1,8 @@
 .event_list {
     list-style-type: none;
 }
+
+.del-btn{
+    background-color: transparent;
+    border: none;
+}
