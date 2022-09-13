@@ -15,6 +15,8 @@ export const ItemList = () => {
     )
 
     return (
+        <>
+        <button onClick={event => {navigate("new")}}>Create New Item</button>
         <article>
             {
                 items.map(item => {
@@ -24,7 +26,6 @@ export const ItemList = () => {
                 })
             }
         </article>
+        </>
     )
 }
-
-
