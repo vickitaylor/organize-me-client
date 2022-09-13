@@ -21,3 +21,13 @@ export const registerUser = (user) => {
     })
         .then(res => res.json())
 }
+
+export const getCurrentUser = () => {
+    return fetch(`http://localhost:8000/organizers/${localStorage.getItem('current_user')}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        },
+    })
+        .then(res => res.json())
+}

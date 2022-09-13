@@ -12,6 +12,7 @@ import { EventEdit } from "../components/events/EventEdit"
 import { ItemList } from "../components/items/ItemList"
 import { ItemForm } from "../components/items/ItemForm"
 import { ItemEdit } from "../components/items/ItemEdit"
+import { HomePage } from "../components/home/HomePage"
 
 export const ApplicationViews = () => {
     return <>
@@ -19,6 +20,7 @@ export const ApplicationViews = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route element={<Authorized />}>
+                <Route path="/home" element={< HomePage />} />
                 <Route path="/rooms" element={< RoomList />} />
                 <Route path="/rooms/create" element={< RoomForm />} />
                 <Route path="/rooms/edit/:roomId" element={< RoomEdit />} />
