@@ -11,6 +11,7 @@ import { EventForm } from "../components/events/EventForm"
 import { EventEdit } from "../components/events/EventEdit"
 import { ItemList } from "../components/items/ItemList"
 import { ItemForm } from "../components/items/ItemForm"
+import { ItemEdit } from "../components/items/ItemEdit"
 
 export const ApplicationViews = () => {
     return <>
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
                 <Route path="/events/edit/:eventId" element={< EventEdit />} />
                 <Route path="/items" element={< ItemList />} />
                 <Route path="/items/new" element={< ItemForm />} />
+                <Route path="/items/edit/:itemId" element={< ItemEdit />} />
             </Route>
         </Routes>
     </>
