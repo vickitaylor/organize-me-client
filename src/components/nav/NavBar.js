@@ -10,6 +10,11 @@ export const NavBar = () => {
                     Rooms
                 </li>
             </Link>
+            <Link className="navbar__link" to="/items">
+                <li className="navbar__item">
+                    Items
+                </li>
+            </Link>
             <Link className="navbar__link" to="/events">
                 <li className="navbar__item">
                     Events
