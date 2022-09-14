@@ -1,0 +1,33 @@
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { getSingleRoom } from "../../managers/RoomManager"
+
+
+export const RoomDetail = () => {
+    const  { roomId } = useParams()
+
+    const [room, setRoom] = useState({})
+    const [items, setItems] = useState([])
+
+
+    useEffect(() => {
+        getSingleRoom(roomId)
+            .then(setRoom)
+    },
+        [roomId]
+    )
+
+    useEffect(() => {
+        getSingleRoom(roomId)
+            .then(setRoom)
+    },
+        [roomId]
+    )    
+
+    return (
+        <> 
+            <h2>{room.name}</h2>
+
+        </>
+    )
+}
