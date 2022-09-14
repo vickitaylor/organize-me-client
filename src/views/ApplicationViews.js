@@ -13,6 +13,7 @@ import { ItemList } from "../components/items/ItemList"
 import { ItemForm } from "../components/items/ItemForm"
 import { ItemEdit } from "../components/items/ItemEdit"
 import { HomePage } from "../components/home/HomePage"
+import { ItemDetail } from "../components/items/ItemDetail"
 
 export const ApplicationViews = () => {
     return <>
@@ -23,13 +24,14 @@ export const ApplicationViews = () => {
                 <Route path="/home" element={< HomePage />} />
                 <Route path="/rooms" element={< RoomList />} />
                 <Route path="/rooms/create" element={< RoomForm />} />
-                <Route path="/rooms/edit/:roomId" element={< RoomEdit />} />
+                <Route path="/rooms/:roomId/edit" element={< RoomEdit />} />
                 <Route path="/events" element={< EventList />} />
                 <Route path="/events/new" element={< EventForm />} />
                 <Route path="/events/edit/:eventId" element={< EventEdit />} />
                 <Route path="/items" element={< ItemList />} />
+                <Route path="/items/:itemId" element={< ItemDetail />} />
                 <Route path="/items/new" element={< ItemForm />} />
-                <Route path="/items/edit/:itemId" element={< ItemEdit />} />
+                <Route path="/items/:itemId/edit" element={< ItemEdit />} />
             </Route>
         </Routes>
     </>
