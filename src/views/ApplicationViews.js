@@ -14,6 +14,7 @@ import { ItemForm } from "../components/items/ItemForm"
 import { ItemEdit } from "../components/items/ItemEdit"
 import { HomePage } from "../components/home/HomePage"
 import { ItemDetail } from "../components/items/ItemDetail"
+import { RoomDetail } from "../components/rooms/RoomDetail"
 
 export const ApplicationViews = () => {
     return <>
@@ -23,6 +24,7 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/home" element={< HomePage />} />
                 <Route path="/rooms" element={< RoomList />} />
+                <Route path="/rooms/:roomId" element={< RoomDetail />} />
                 <Route path="/rooms/create" element={< RoomForm />} />
                 <Route path="/rooms/:roomId/edit" element={< RoomEdit />} />
                 <Route path="/events" element={< EventList />} />
