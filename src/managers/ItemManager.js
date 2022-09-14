@@ -8,6 +8,16 @@ export const getAllItems = () => {
         .then(res => res.json())
 }
 
+export const getSingleItem = (itemId) => {
+    return fetch(`http://localhost:8000/items/${itemId}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        },
+    })
+        .then(res => res.json())
+}
+
 export const createItem = (item) => {
     return fetch(`http://localhost:8000/items`, {
         method: "POST",
@@ -18,16 +28,6 @@ export const createItem = (item) => {
         body: JSON.stringify(item)
     })
     .then(res => res.json())
-}
-
-export const getSingleItem = (itemId) => {
-    return fetch(`http://localhost:8000/items/${itemId}`, {
-        method: "GET",
-        headers: {
-            'Authorization': `Token ${localStorage.getItem('om_token')}`
-        },
-    })
-        .then(res => res.json())
 }
 
 export const editItem = (itemId, item) => {
