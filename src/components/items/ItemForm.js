@@ -6,9 +6,9 @@ import { createItem } from "../../managers/ItemManager"
 export const ItemForm = () => {
     const navigate = useNavigate()
 
-    const [ categories, setCategories ] = useState([])
+    const [categories, setCategories] = useState([])
 
-    const [ item, setItem ] = useState({
+    const [item, setItem] = useState({
         name: "",
         picture: "",
         description: "",
@@ -74,7 +74,7 @@ export const ItemForm = () => {
             </fieldset>
 
             <fieldset>
-                <label htmlFor="picture" className="label">Upload Your Item Picture:</label><br/>
+                <label htmlFor="picture" className="label">Upload Your Item Picture:</label><br />
                 <input type="file" id="picture" onChange={createItemImageString} />
                 <input type="hidden" name="picture" value={item.picture} />
             </fieldset>
@@ -83,13 +83,16 @@ export const ItemForm = () => {
                 event.preventDefault()
                 const newItem = {
                     name: item.name,
-                    picture: item.picture, 
+                    picture: item.picture,
                     description: item.description,
                     category: parseInt(item.category)
                 }
                 createItem(newItem)
                     .then(() => navigate("/items"))
             }}>Create Item</button>
+            <button onClick={() => navigate(`/rooms`)}>
+                Cancel
+            </button>
         </form>
     )
 }
