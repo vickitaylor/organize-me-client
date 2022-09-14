@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getItemsInRoom } from "../../managers/ItemDetailManager"
 import { getSingleRoom } from "../../managers/RoomManager"
 
 
 export const RoomDetail = () => {
-    const  { roomId } = useParams()
+    const { roomId } = useParams()
+    const navigate = useNavigate()
 
     const [room, setRoom] = useState({})
     const [items, setItems] = useState([])
@@ -25,12 +26,12 @@ export const RoomDetail = () => {
             .then(setRoom)
     },
         [roomId]
-    )    
+    )
 
     return (
-        <> 
+        <>
             <h2>{room.name}</h2>
-
+            <button onClick={evt => { navigate(`edit`) }}>Edit</button>
             <article>
                 {
                     items.map(item => {
