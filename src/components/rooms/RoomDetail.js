@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { getItemsInRoom } from "../../managers/ItemDetailManager"
 import { getSingleRoom } from "../../managers/RoomManager"
 
 
@@ -13,6 +14,8 @@ export const RoomDetail = () => {
     useEffect(() => {
         getSingleRoom(roomId)
             .then(setRoom)
+        getItemsInRoom(roomId)
+            .then(setItems)
     },
         [roomId]
     )
@@ -28,6 +31,15 @@ export const RoomDetail = () => {
         <> 
             <h2>{room.name}</h2>
 
+            <article>
+                {
+                    items.map(item => {
+                        return <section key={`item--${item.id}`} className="items">
+                            <div>{item.item?.name}</div>
+                        </section>
+                    })
+                }
+            </article>
         </>
     )
 }
