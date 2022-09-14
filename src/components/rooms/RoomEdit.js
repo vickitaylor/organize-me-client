@@ -6,7 +6,7 @@ import { editRoom, getSingleRoom } from "../../managers/RoomManager"
 export const RoomEdit = () => {
     const navigate = useNavigate()
     const { roomId } = useParams()
-    
+
     const [updateRoom, setUpdateRoom] = useState({})
 
     useEffect(() => {
@@ -69,6 +69,9 @@ export const RoomEdit = () => {
                     editRoom(roomId, updatedRoom)
                         .then(() => navigate(`/rooms/${roomId}`))
                 }}>Edit Room</button>
+                <button onClick={() => navigate(`/rooms`)}>
+                    Cancel
+                </button>
             </form >
         </>
     )
