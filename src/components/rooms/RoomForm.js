@@ -59,6 +59,9 @@ export const RoomForm = () => {
                 createRoom(newRoom)
                     .then(() => navigate("/rooms"))
             }}>Create Room</button>
+            <button onClick={() => navigate(`/rooms`)}>
+                Cancel
+            </button>
         </form>
     )
 }

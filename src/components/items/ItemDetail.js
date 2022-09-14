@@ -37,6 +37,9 @@ export const ItemDetail = () => {
                 <section className="item_details">
                     <div><strong>Description:</strong></div>
                     <div>{item.description}</div>
+                    <button onClick={() => navigate(`/items`)}>
+                        Go Back to Items
+                    </button>
                     <button>Like</button>
                     {
                         (item.org?.id === parseInt(localStorage.getItem('current_user')))

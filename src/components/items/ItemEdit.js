@@ -7,7 +7,7 @@ import { getAllCategories } from "../../managers/CategoryManager"
 export const ItemEdit = () => {
     const navigate = useNavigate()
     const { itemId } = useParams()
-    const [ categories, setCategories ] = useState([])
+    const [categories, setCategories] = useState([])
 
     const [updateItem, setUpdateItem] = useState({})
 
@@ -100,6 +100,9 @@ export const ItemEdit = () => {
                     editItem(itemId, updatedItem)
                         .then(() => navigate(`/items/${itemId}`))
                 }}>Edit Item</button>
+                <button onClick={() => navigate(`/rooms`)}>
+                    Cancel
+                </button>
             </form >
         </>
     )
