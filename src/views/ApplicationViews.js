@@ -16,6 +16,7 @@ import { HomePage } from "../components/home/HomePage"
 import { ItemDetail } from "../components/items/ItemDetail"
 import { RoomDetail } from "../components/rooms/RoomDetail"
 import { ItemProperties } from "../components/items/ItemProperties"
+import { PersonalizedItemDetail } from "../components/items/PersonalizedItemDetail"
 
 export const ApplicationViews = () => {
     return <>
@@ -36,6 +37,7 @@ export const ApplicationViews = () => {
                 <Route path="/items/new" element={< ItemForm />} />
                 <Route path="/items/:itemId/edit" element={< ItemEdit />} />
                 <Route path="/details/:itemPropId/edit" element={< ItemProperties />} />
+                <Route path="/details/:itemPropId" element={< PersonalizedItemDetail />} />
             </Route>
         </Routes>
     </>

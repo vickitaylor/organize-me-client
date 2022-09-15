@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link } from "react-router-dom"
 import { getItemsInRoom } from "../../managers/ItemDetailManager"
 import { getSingleRoom } from "../../managers/RoomManager"
 
@@ -36,7 +36,7 @@ export const RoomDetail = () => {
                 {
                     items.map(item => {
                         return <section key={`item--${item.id}`} className="items">
-                            <div>{item.item?.name}</div>
+                            <Link to={`/details/${item.id}`}>{item.item?.name}</Link>
                         </section>
                     })
                 }
