@@ -31,7 +31,7 @@ export const RoomDetail = () => {
     return (
         <>
             <h2>{room.name}</h2>
-            <button onClick={evt => { navigate(`edit`) }}>Edit</button>
+            <button onClick={evt => { navigate(`edit`) }}>Edit Room</button>
             <article>
                 {
                     items.map(item => {
