@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { createItemDetail, getItemDetail } from "../../managers/ItemDetailManager"
+import { getItemDetail } from "../../managers/ItemDetailManager"
 import "./item.css"
 
 
@@ -9,8 +9,6 @@ export const PersonalizedItemDetail = () => {
     const navigate = useNavigate()
 
     const [perItem, setPerItem] = useState({})
-    // const [rooms, setRooms] = useState([])
-    // const [itemDetail, setItemDetail] = useState({})
 
     useEffect(() => {
         getItemDetail(itemPropId)
