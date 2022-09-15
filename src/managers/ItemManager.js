@@ -27,7 +27,7 @@ export const createItem = (item) => {
         },
         body: JSON.stringify(item)
     })
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const editItem = (itemId, item) => {
@@ -38,5 +38,25 @@ export const editItem = (itemId, item) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(item)
-    }) 
+    })
+}
+
+export const like = (itemId) => {
+    return fetch(`http://localhost:8000/items/${itemId}/like`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(itemId)
+    })
+}
+
+export const unlike = (itemId) => {
+    return fetch(`http://localhost:8000/items/${itemId}/unlike`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`
+        }
+    })
 }

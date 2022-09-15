@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { createItemDetail } from "../../managers/ItemDetailManager"
-import { getSingleItem } from "../../managers/ItemManager"
+import { getSingleItem, like, unlike } from "../../managers/ItemManager"
 import { getRoomsCurrentUser } from "../../managers/RoomManager"
 import "./item.css"
 
@@ -28,6 +28,10 @@ export const ItemDetail = () => {
         []
     )
 
+    const render = () => {
+        getSingleItem(itemId).then(setItem)
+    }
+
     return (
         <>
             <h2>{item.name}</h2>
@@ -40,12 +44,21 @@ export const ItemDetail = () => {
                     <button onClick={() => navigate(`/items`)}>
                         Go Back to Items
                     </button>
-                    <button>Like</button>
+
+                    {
+                        (item.liked)
+                            ?
+                            <button onClick={(() => { unlike(item.id).then(() => render()) })}>Un-Like</button>
+                            :
+                            <button onClick={(() => { like(item.id).then(() => render()) })}>Like</button>
+                    }
+
                     {
                         (item.org?.id === parseInt(localStorage.getItem('current_user')))
                             ? <button onClick={evt => { navigate(`edit`) }}>Edit</button>
                             : ""
                     }
+
                     <div>
                         <select className="form-control" name="room" value={item.room} required
                             onChange={(event) => {
