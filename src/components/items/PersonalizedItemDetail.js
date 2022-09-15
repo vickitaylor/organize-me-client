@@ -30,7 +30,7 @@ export const PersonalizedItemDetail = () => {
                     <div>Price: {perItem.price}</div>
                     <div>Purchased Date: {perItem.purchase_date}</div>
                     <div>Expires: {perItem.expiration_date}</div>
-                    <div>Quantity: {perItem.quanity}</div>
+                    <div>Quantity: {perItem.quantity}</div>
                     <div>Serial Number: {perItem.serial_num}</div>
                     <div>Status: {perItem.status?.title}</div>
 
