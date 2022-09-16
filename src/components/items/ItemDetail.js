@@ -80,7 +80,7 @@ export const ItemDetail = () => {
                                 room: parseInt(itemDetail.room)
                             }
                             createItemDetail(newDetail)
-                                .then(() => navigate("/items"))
+                                .then((req) => navigate(`/details/${req.id}`))
                         }}>Save to Room</button>
                     </div>
                 </section>

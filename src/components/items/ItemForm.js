@@ -88,7 +88,7 @@ export const ItemForm = () => {
                     category: parseInt(item.category)
                 }
                 createItem(newItem)
-                    .then(() => navigate("/items"))
+                    .then((req) => navigate(`/items/${req.id}`))
             }}>Create Item</button>
             <button onClick={() => navigate(`/rooms`)}>
                 Cancel
