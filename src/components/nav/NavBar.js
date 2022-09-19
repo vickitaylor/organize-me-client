@@ -26,7 +26,6 @@ export const NavBar = () => {
                 </a>
             </div>
 
-
             <div className="navbar-menu" ref={navbar}>
                 <div className="navbar-start">
                     {
@@ -36,7 +35,7 @@ export const NavBar = () => {
                                 <Link className="navbar-item" to="/items">Items</Link>
                                 <Link className="navbar-item" to="/events">Events</Link>
                                 {
-                                    (localStorage.getItem("is_staff"))
+                                    (localStorage.getItem("is_staff") == "true")
                                         ? <Link className="navbar-item" to="/admin">Admin</Link>
                                         : ""
                                 }
@@ -55,6 +54,8 @@ export const NavBar = () => {
                                         <Link className="navbar-item" to="/rooms">Me!!</Link>
                                         <button className="button is-outlined" onClick={() => {
                                             localStorage.removeItem("om_token")
+                                            localStorage.removeItem("is_staff")
+                                            localStorage.removeItem("current_user")
                                             navigate('/login')
                                         }}>Logout</button>
                                     </>
