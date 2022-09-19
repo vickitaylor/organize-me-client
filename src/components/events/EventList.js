@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { deleteEvent, getCurrentUserEvents } from "../../managers/EventManager"
+import { deleteEvent, getCurrentUserEvents, completeEvent } from "../../managers/EventManager"
 import Icon from '@mdi/react'
 import { mdiTrashCanOutline } from '@mdi/js';
 import { mdiCheckCircle } from '@mdi/js';
@@ -20,6 +20,10 @@ export const EventList = () => {
         loadEvents()
     }, [])
 
+    const render = () => {
+        getCurrentUserEvents().then(setEvents)
+    }
+
     const handleDelete = (id) => {
         deleteEvent(id).then(loadEvents)
     }
@@ -33,13 +37,19 @@ export const EventList = () => {
                 {
                     events.map(event => {
                         return <section key={`event--${event.id}`} className="event">
-                            <ul >
+                            {
+                                (event.completed !== true)
+                                ? <ul >
                                 <li className="event_list">{event.title} </li>
                                 <li className="event_list">Date: {event.readable_date} at {event.readable_time}</li>
 
 
                                 <div>
-                                    <button className="del-btn icon-text has-text-success" onClick={() => { }}>
+                                    <button className="del-btn icon-text has-text-success" onClick={evt => {
+                                        evt.preventDefault()
+                                        completeEvent(`${event.id}`)
+                                            .then(() => render())
+                                    }}>
                                         <Icon path={mdiCheckCircle}
                                             title="check-circle"
                                             size={1}
@@ -65,6 +75,9 @@ export const EventList = () => {
                                     </button>
                                 </div> <br />
                             </ul>
+                            : ""
+                            }
+                            
                         </section>
                     })
                 }

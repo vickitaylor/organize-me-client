@@ -41,6 +41,16 @@ export const editEvent = (eventId, event) => {
     })
 }
 
+export const completeEvent = (eventId) => {
+    return fetch(`http://localhost:8000/events/${eventId}/complete`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`,
+            "Content-Type": "application/json"
+        }
+    })
+}
+
 export const deleteEvent = (id) => {
     return fetch(`http://localhost:8000/events/${id}`, {
         method: "DELETE",
