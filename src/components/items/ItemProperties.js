@@ -86,7 +86,7 @@ export const ItemProperties = () => {
                         <fieldset>
                             <label htmlFor="status" className="label">Change Status:</label>
                             <div className="select">
-                                <select name="status" value={updateItem.status?.id}
+                                <select name="status"  value={updateItem.status?.id}
                                     onChange={changeItemState}>
                                     <option value="0">Pick A New Status:</option>
                                     {
@@ -167,8 +167,8 @@ export const ItemProperties = () => {
                                 quantity: parseInt(updateItem.quantity),
                                 receipt_pic: updateItem.receipt_pic,
                                 purchased_from: updateItem.purchased_from,
-                                price: updateItem.price,
-                                status: parseInt(updateItem.status?.id),
+                                price: parseFloat(updateItem.price),
+                                status: parseInt(updateItem.status),
                                 serial_num: updateItem.serial_num,
                                 purchase_date: updateItem.purchase_date,
                                 expiration_date: updateItem.expiration_date
