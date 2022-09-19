@@ -31,7 +31,10 @@ export const ItemList = () => {
     return (
         <>
             <h2 className="title mx-4">Item List</h2>
-            <button className="button is-info mb-4 mx-4" onClick={event => { navigate("new") }}>Create New Item</button>
+            <div>
+                <button className="button is-info mb-4 mx-4" onClick={event => { navigate("new") }}>Create New Item</button>
+                <button className="button is-info mb-4 mx-4" onClick={event => { navigate(`/categories`) }}>Create New Category</button>
+            </div>
 
             <div className="px-4 pb-4">
                 <input
