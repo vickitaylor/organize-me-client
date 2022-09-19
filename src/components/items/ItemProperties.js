@@ -66,35 +66,35 @@ export const ItemProperties = () => {
             <section className="section">
 
                 <article className="panel has-background-info-light">
-                    <h2 className="panel-heading has-background-info has-text-white">Edit {updateItem.item?.name}</h2>
+                    <h2 className="panel-heading has-background-info has-text-white">Personalize {updateItem.item?.name}</h2>
 
                     <article className="p-3">
                         <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="room" className="label">Change Room:</label>
+                            <label htmlFor="room" className="label">Change Room:</label>
+                            <div className="select">
+                                <select name="room" value={updateItem.room}
+                                    onChange={changeItemState}>
+                                    <option value="0">Pick A New Room:</option>
+                                    {
+                                        rooms.map(room => {
+                                            return <option value={room.id} key={`room--${room.id}`}>{room.name}</option>
+                                        })
+                                    }</select>
                             </div>
-                            <select className="form-control input" name="room" value={updateItem.room}
-                                onChange={changeItemState}>
-                                <option value="0">Pick A New Room:</option>
-                                {
-                                    rooms.map(room => {
-                                        return <option value={room.id} key={`room--${room.id}`}>{room.name}</option>
-                                    })
-                                }</select>
                         </fieldset>
 
                         <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="status" className="label">Change Status:</label>
+                            <label htmlFor="status" className="label">Change Status:</label>
+                            <div className="select">
+                                <select name="status" value={updateItem.status?.id}
+                                    onChange={changeItemState}>
+                                    <option value="0">Pick A New Status:</option>
+                                    {
+                                        itemStatus.map(status => {
+                                            return <option value={status.id} key={`status--${status.id}`}>{status.title}</option>
+                                        })
+                                    }</select>
                             </div>
-                            <select className="form-control input" name="status" value={updateItem.status?.id}
-                                onChange={changeItemState}>
-                                <option value="0">Pick A New Status:</option>
-                                {
-                                    itemStatus.map(status => {
-                                        return <option value={status.id} key={`status--${status.id}`}>{status.title}</option>
-                                    })
-                                }</select>
                         </fieldset>
 
                         <fieldset>
