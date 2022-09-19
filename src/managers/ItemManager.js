@@ -18,6 +18,16 @@ export const getSingleItem = (itemId) => {
         .then(res => res.json())
 }
 
+export const getSearchItems = (search) => {
+    return fetch(`http://localhost:8000/items?search=${search}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        }
+    })
+        .then(res => res.json())
+}
+
 export const createItem = (item) => {
     return fetch(`http://localhost:8000/items`, {
         method: "POST",

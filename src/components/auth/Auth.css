@@ -43,6 +43,10 @@ fieldset {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+.search {
+    width: 20%;
+}
+
 .form--login {
     background-size: cover;
     background-position-x: center;
