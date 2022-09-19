@@ -17,6 +17,8 @@ import { ItemDetail } from "../components/items/ItemDetail"
 import { RoomDetails } from "../components/rooms/RoomDetails"
 import { ItemProperties } from "../components/items/ItemProperties"
 import { PersonalizedItemDetail } from "../components/items/PersonalizedItemDetail"
+import { CategoryForm } from "../components/categories/CategoriesForm"
+import { StatusForm } from "../components/ItemStatus/StatusForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -38,6 +40,8 @@ export const ApplicationViews = () => {
                 <Route path="/items/:itemId/edit" element={< ItemEdit />} />
                 <Route path="/details/:itemPropId/edit" element={< ItemProperties />} />
                 <Route path="/details/:itemPropId" element={< PersonalizedItemDetail />} />
+                <Route path="/categories" element={< CategoryForm />} />
+                <Route path="/statuses" element={< StatusForm />} />
             </Route>
         </Routes>
     </>

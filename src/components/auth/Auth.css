@@ -68,3 +68,7 @@ fieldset {
     min-width: 15rem;
     min-height: 5rem;
 }
+
+.container--login {
+    text-align: center;
+}
