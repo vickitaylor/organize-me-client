@@ -22,8 +22,10 @@ export const Login = () => {
                     localStorage.setItem("om_token", res.token)
                     // added current user property
                     localStorage.setItem("current_user", res.current_user)
+                    localStorage.setItem('is_staff', res.is_staff)
                     navigate("/home")
                 }
+                
                 else {
                     invalidDialog.current.showModal()
                 }

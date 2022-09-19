@@ -39,7 +39,7 @@ export const RoomDetails = () => {
                 setFiltered(items)
             }
         },
-        [searchTerms, items]
+        [searchTerms, items, roomId]
     )
 
     useEffect(
@@ -54,7 +54,7 @@ export const RoomDetails = () => {
                     })
             }
         },
-        [chosenCat, items]
+        [chosenCat, items, roomId]
     )
 
     return (

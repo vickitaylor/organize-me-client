@@ -19,6 +19,7 @@ import { ItemProperties } from "../components/items/ItemProperties"
 import { PersonalizedItemDetail } from "../components/items/PersonalizedItemDetail"
 import { CategoryForm } from "../components/categories/CategoriesForm"
 import { StatusForm } from "../components/ItemStatus/StatusForm"
+import { AdminView } from "../components/admin/AdminView"
 
 export const ApplicationViews = () => {
     return <>
@@ -42,6 +43,7 @@ export const ApplicationViews = () => {
                 <Route path="/details/:itemPropId" element={< PersonalizedItemDetail />} />
                 <Route path="/categories" element={< CategoryForm />} />
                 <Route path="/statuses" element={< StatusForm />} />
+                <Route path="/admin" element={< AdminView />} />
             </Route>
         </Routes>
     </>

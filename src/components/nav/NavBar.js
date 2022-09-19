@@ -1,6 +1,5 @@
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
@@ -36,6 +35,11 @@ export const NavBar = () => {
                                 <Link className="navbar-item" to="/rooms">Rooms</Link>
                                 <Link className="navbar-item" to="/items">Items</Link>
                                 <Link className="navbar-item" to="/events">Events</Link>
+                                {
+                                    (localStorage.getItem("is_staff"))
+                                        ? <Link className="navbar-item" to="/admin">Admin</Link>
+                                        : ""
+                                }
                             </>
                             : ""
                     }
