@@ -18,6 +18,26 @@ export const getItemDetail = (id) => {
         .then(res => res.json())
 }
 
+
+export const getFilteredItemsInRoom = (id, search) => {
+    return fetch(`http://localhost:8000/item_details?room=${id}&search=${search}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        }
+    })
+        .then(res => res.json())
+}
+
+export const getItemsInRoomByCategory = (room, id) => {
+    return fetch(`http://localhost:8000/item_details?room=${room}&category=${id}`, {
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        }
+    })
+        .then(res => res.json())
+}
+
 export const createItemDetail = (item) => {
     return fetch(`http://localhost:8000/item_details`, {
         method: "POST",
