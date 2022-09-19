@@ -10,7 +10,7 @@ export const NavBar = () => {
     const showMobileNavbar = () => {
         hamburger.current.classList.toggle('is-active')
         navbar.current.classList.toggle('is-active')
-      }
+    }
 
     return (
         <nav className="navbar is-info mb-3" role="navigation" aria-label="main navigation">
@@ -23,6 +23,7 @@ export const NavBar = () => {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
+
                 </a>
             </div>
 

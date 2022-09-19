@@ -59,23 +59,20 @@ export const ItemForm = () => {
                     <fieldset>
                         <div className="">
                             <label htmlFor="description" className="label">Item Description:</label>
-                            <textarea type="text" name="description" required className=" input" value={item.description}
+                            <textarea type="text" name="description" required className="textarea" value={item.description}
                                 onChange={changeItemState} />
                         </div>
                     </fieldset>
 
                     <fieldset>
-                        <div className="">
-                            <label className="label" htmlFor="category">Choose a Category:</label>
-                            <div className="select">
-
-                                <select className=" select" name="category" value={item.category} required onChange={changeItemState}>
-                                    <option value="0">Categories:</option>
-                                    {categories.map(category => {
-                                        return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>
-                                    })}
-                                </select>
-                            </div>
+                        <label className="label" htmlFor="category">Choose a Category:</label>
+                        <div className="select">
+                            <select name="category" value={item.category} required onChange={changeItemState}>
+                                <option value="0">Categories:</option>
+                                {categories.map(category => {
+                                    return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>
+                                })}
+                            </select>
                         </div>
                     </fieldset>
 

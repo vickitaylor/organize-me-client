@@ -62,7 +62,7 @@ export const ItemEdit = () => {
                         <fieldset>
                             <div className="form-group">
                                 <label htmlFor="name" className="label">Item Name:</label>
-                                <input type="text" name="name" required autoFocus className="form-control input" value={updateItem.name}
+                                <input type="text" name="name" required autoFocus className="input" value={updateItem.name}
                                     onChange={changeItemState} />
                             </div>
                         </fieldset>
@@ -70,15 +70,15 @@ export const ItemEdit = () => {
                         <fieldset>
                             <div className="form-group">
                                 <label htmlFor="description" className="label">Item Description:</label>
-                                <textarea type="text" name="description" required className="form-control input" value={updateItem.description}
+                                <textarea type="text" name="description" required className="textarea" value={updateItem.description}
                                     onChange={changeItemState} />
                             </div>
                         </fieldset>
 
                         <fieldset>
-                            <div className="form-group">
-                                <label className="label" htmlFor="category">Category:</label>
-                                <select className="form-control input" name="category" value={updateItem.category?.id} required onChange={changeItemState}>
+                            <label className="label" htmlFor="category">Category:</label>
+                            <div className="select">
+                                <select name="category" value={updateItem.category?.id} required onChange={changeItemState}>
                                     <option value="0">Choose Category:</option>
                                     {categories.map(category => {
                                         return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>

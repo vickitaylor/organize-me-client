@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getItemDetail } from "../../managers/ItemDetailManager"
-import "./item.css"
 
 
 export const PersonalizedItemDetail = () => {
@@ -19,30 +18,45 @@ export const PersonalizedItemDetail = () => {
 
     return (
         <>
-            <h2>{perItem.item?.name}</h2>
-            <article className="item">
-                <img className="picture" src={`http://localhost:8000${perItem.item?.picture}`} alt={perItem.item?.picture} />
+            <h2 className="title is-4 is-spaced mx-4 pt-2" >{perItem.item?.name}</h2>
+            <div className="tile is-ancestor mx-2">
+                <div className="tile is-parent">
+                    <article className="tile is-child">
+                        <figure className="image is-3by2">
+                            <img className="picture" src={`http://localhost:8000${perItem.item?.picture}`} alt={perItem.item?.picture} />
+                        </figure>
+                    </article>
 
-                <section>
-                    <div><strong>Description:</strong></div>
-                    <div>{perItem.item?.description}</div>
-                    <div>Purchased From: {perItem.purchased_from}</div>
-                    <div>Price: {perItem.price}</div>
-                    <div>Purchased Date: {perItem.purchased_date}</div>
-                    <div>Expires: {perItem.exp_date}</div>
-                    <div>Quantity: {perItem.quantity}</div>
-                    <div>Serial Number: {perItem.serial_num}</div>
-                    <div>Status: {perItem.status?.title}</div>
+                    <div className="tile is-parent is-vertical">
+                        <article className="tile is-child">
+                            <div className="title is-5 is-child">Description:</div>
+                            <div>{perItem.item?.description}</div> <br />
+                            <div><strong>Details:</strong></div>
+                            <div>Purchased From: {perItem.purchased_from}</div>
+                            <div>Price: {perItem.price}</div>
+                            <div>Purchased Date: {perItem.purchased_date}</div>
+                            <div>Expires: {perItem.exp_date}</div>
+                            <div>Quantity: {perItem.quantity}</div>
+                            <div>Serial Number: {perItem.serial_num}</div>
+                            <div>Status: {perItem.status?.title}</div>
+                        </article>
 
+                        <article className="tile is-child is-align-self-left">
+                            <div className="field is-grouped">
+                                <p className="control">
+                                    <button className="button is-info is-inverted mr-3" onClick={() => navigate(`/rooms/${perItem.room}`)}>
+                                        Go Back Room
+                                    </button>
+                                    <button className="button is-info" onClick={evt => { navigate(`edit`) }}>Edit</button>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
 
-                    <button className="button is-info is-inverted mr-3" onClick={() => navigate(`/rooms/${perItem.room}`)}>
-                        Go Back Room
-                    </button>
+            <img className="tile is-ancestor mx-2" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
 
-                    <button className="button is-info" onClick={evt => { navigate(`edit`) }}>Edit</button>
-                </section>
-                <img className="picture" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
-            </article>
         </>
     )
 }

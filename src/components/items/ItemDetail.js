@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import { createItemDetail } from "../../managers/ItemDetailManager"
 import { getSingleItem, like, unlike } from "../../managers/ItemManager"
 import { getRoomsCurrentUser } from "../../managers/RoomManager"
-import "./item.css"
 
 
 export const ItemDetail = () => {
@@ -32,60 +31,77 @@ export const ItemDetail = () => {
         getSingleItem(itemId).then(setItem)
     }
 
+
+
     return (
         <>
-            <h2>{item.name}</h2>
-            <article className="item">
-                <img className="picture" key={`pic--${item.picture}`} src={`http://localhost:8000${item.picture}`} alt={item.picture} />
+            <h2 className="title is-4 is-spaced mx-4 pt-2" >{item.name}</h2>
+            <div className="tile is-ancestor mx-2">
+                <div className="tile is-parent">
+                    <article className="tile is-child">
+                        <figure className="image is-3by2">
+                            <img className="picture" key={`pic--${item.picture}`} src={`http://localhost:8000${item.picture}`} alt={item.picture} />
+                        </figure>
+                    </article>
+                </div>
 
-                <section className="item_details">
-                    <div><strong>Description:</strong></div>
-                    <div>{item.description}</div>
-                    <div><strong>Category: </strong> {item.category?.name}</div>
-                    <button className="button is-info mr-3 is-inverted" onClick={() => navigate(`/items`)}>
-                        Go Back to Items
-                    </button>
+                <div className="tile is-parent is-vertical">
+                    <article className="tile is-child">
+                        <div className="title is-5 is-child">Description:</div>
+                        <div className>{item.description}</div>
 
-                    {
-                        (item.liked)
-                            ?
-                            <button className="button is-warning mr-3" onClick={(() => { unlike(item.id).then(() => render()) })}>Un-Like</button>
-                            :
-                            <button className="button is-primary mr-3" onClick={(() => { like(item.id).then(() => render()) })}>Like</button>
-                    }
+                    </article>
 
-                    {
-                        (item.org?.id === parseInt(localStorage.getItem('current_user')))
-                            ? <button className="button is-info mr-3" onClick={evt => { navigate(`edit`) }}>Edit</button>
-                            : ""
-                    }
+                    <article className="tile is-child is-align-self-left">
+                        <div className="field is-grouped">
+                            <p className="control">
+                                <button className="button is-warning" onClick={() => navigate(`/items`)}>
+                                    Go Back to Items
+                                </button>
+                            </p>
 
-                    <div>
-                        <select className="form-control" name="room" value={item.room} required
-                            onChange={(event) => {
-                                event.preventDefault()
-                                const copy = { ...itemDetail }
-                                copy[event.target.name] = parseInt(event.target.value)
-                                setItemDetail(copy)
-                            }}>
-                            <option value="0">Add To A Room:</option>
                             {
-                                rooms.map(room => {
-                                    return <option value={room.id} key={`room--${room.id}`}>{room.name}</option>
-                                })
-                            }</select>
-                        <button className="button is-info" type="submit" onClick={event => {
-                            event.preventDefault()
-                            const newDetail = {
-                                item: parseInt(itemId),
-                                room: parseInt(itemDetail.room)
+                                (item.liked)
+                                    ?
+                                    <button className="button is-warning mr-3" onClick={(() => { unlike(item.id).then(() => render()) })}>Un-Like</button>
+                                    :
+                                    <button className="button is-primary mr-3" onClick={(() => { like(item.id).then(() => render()) })}>Like</button>
                             }
-                            createItemDetail(newDetail)
-                                .then((req) => navigate(`/details/${req.id}`))
-                        }}>Save to Room</button>
-                    </div>
-                </section>
-            </article>
+
+                            {
+                                (item.org?.id === parseInt(localStorage.getItem('current_user')))
+                                    ? <button className="button is-info mr-3" onClick={evt => { navigate(`edit`) }}>Edit</button>
+                                    : ""
+                            }
+                        </div>
+
+                        <div className="select">
+                            <select name="room" value={item.room} required
+                                onChange={(event) => {
+                                    event.preventDefault()
+                                    const copy = { ...itemDetail }
+                                    copy[event.target.name] = parseInt(event.target.value)
+                                    setItemDetail(copy)
+                                }}>
+                                <option value="0">Add To A Room:</option>
+                                {
+                                    rooms.map(room => {
+                                        return <option value={room.id} key={`room--${room.id}`}>{room.name}</option>
+                                    })
+                                }</select>
+                            <button className="button is-info mt-3" type="submit" onClick={event => {
+                                event.preventDefault()
+                                const newDetail = {
+                                    item: parseInt(itemId),
+                                    room: parseInt(itemDetail.room)
+                                }
+                                createItemDetail(newDetail)
+                                    .then((req) => navigate(`/details/${req.id}`))
+                            }}>Save to Room</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </>
     )
 }
