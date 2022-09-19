@@ -9,7 +9,7 @@ export const getCurrentUserEvents = () => {
 }
 
 export const getSearchEvents = (search) => {
-    return fetch(`http://localhost:8000/events?search=${search}`, {
+    return fetch(`http://localhost:8000/events?user=${localStorage.getItem('current_user')}&search=${search}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
