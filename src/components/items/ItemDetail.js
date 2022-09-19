@@ -41,21 +41,22 @@ export const ItemDetail = () => {
                 <section className="item_details">
                     <div><strong>Description:</strong></div>
                     <div>{item.description}</div>
-                    <button onClick={() => navigate(`/items`)}>
+                    <div><strong>Category: </strong> {item.category?.name}</div>
+                    <button className="button is-info mr-3 is-inverted" onClick={() => navigate(`/items`)}>
                         Go Back to Items
                     </button>
 
                     {
                         (item.liked)
                             ?
-                            <button onClick={(() => { unlike(item.id).then(() => render()) })}>Un-Like</button>
+                            <button className="button is-warning mr-3" onClick={(() => { unlike(item.id).then(() => render()) })}>Un-Like</button>
                             :
-                            <button onClick={(() => { like(item.id).then(() => render()) })}>Like</button>
+                            <button className="button is-primary mr-3" onClick={(() => { like(item.id).then(() => render()) })}>Like</button>
                     }
 
                     {
                         (item.org?.id === parseInt(localStorage.getItem('current_user')))
-                            ? <button onClick={evt => { navigate(`edit`) }}>Edit</button>
+                            ? <button className="button is-info mr-3" onClick={evt => { navigate(`edit`) }}>Edit</button>
                             : ""
                     }
 
@@ -67,13 +68,13 @@ export const ItemDetail = () => {
                                 copy[event.target.name] = parseInt(event.target.value)
                                 setItemDetail(copy)
                             }}>
-                            <option value="0">Add Item To A Room:</option>
+                            <option value="0">Add To A Room:</option>
                             {
                                 rooms.map(room => {
                                     return <option value={room.id} key={`room--${room.id}`}>{room.name}</option>
                                 })
                             }</select>
-                        <button type="submit" onClick={event => {
+                        <button className="button is-info" type="submit" onClick={event => {
                             event.preventDefault()
                             const newDetail = {
                                 item: parseInt(itemId),

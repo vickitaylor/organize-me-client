@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom"
 
-export const RoomDetail = ({ roomItem }) => {
+export const Room = ({ room }) => {
+
 
     return (
 
-        <article className="column width is-one-fifth ">
+        <article className="column width is-one-quarter ">
             <section className="card has-background-info-light">
                 <div className="card-image">
-                    <figure className="image image is-square">
-                        <img src={`http://localhost:8000${roomItem.item?.picture}`} alt={roomItem.item?.name} />
+                    <figure className="image image is-4by3">
+                        <img src={`http://localhost:8000${room.picture}`} alt={room.name} />
                     </figure>
                 </div>
 
                 <header className="card-header">
                     <p className="card-header-title">
-                        <Link to={`/details/${roomItem.id}`}>{roomItem.item?.name}</Link>
+                        <Link to={`/rooms/${room.id}`}>{room.name}</Link>
                     </p>
                 </header>
 

@@ -1,44 +1,67 @@
+import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
-    return (
-        <ul className="navbar">
-            <Link className="navbar__link" to="/rooms">
-                <li className="navbar__item">
-                    Rooms
-                </li>
-            </Link>
-            <Link className="navbar__link" to="/items">
-                <li className="navbar__item">
-                    Items
-                </li>
-            </Link>
-            <Link className="navbar__link" to="/events">
-                <li className="navbar__item">
-                    Events
-                </li>
-            </Link>
+    const navbar = useRef()
+    const hamburger = useRef()
 
-            {
-                (localStorage.getItem("om_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
-                            onClick={() => {
-                                localStorage.removeItem("om_token")
-                                navigate('/login')
-                            }}
-                        >Logout</button>
-                    </li> :
-                    <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
-                    </>
-            }        </ul>
+    const showMobileNavbar = () => {
+        hamburger.current.classList.toggle('is-active')
+        navbar.current.classList.toggle('is-active')
+      }
+
+    return (
+        <nav className="navbar is-info mb-3" role="navigation" aria-label="main navigation">
+            <div className="navbar-brand">
+                <a className="navbar-item" href="/home">
+                    <h1 className="title is-4">Organize Me</h1>
+                </a>
+
+                <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={showMobileNavbar} ref={hamburger}>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+
+            <div className="navbar-menu" ref={navbar}>
+                <div className="navbar-start">
+                    {
+                        (localStorage.getItem("om_token") !== null)
+                            ? <>
+                                <Link className="navbar-item" to="/rooms">Rooms</Link>
+                                <Link className="navbar-item" to="/items">Items</Link>
+                                <Link className="navbar-item" to="/events">Events</Link>
+                            </>
+                            : ""
+                    }
+                </div>
+
+                <div className="navbar-end">
+                    <div className="navbar-item">
+                        <div className="buttons">
+
+                            {
+                                (localStorage.getItem("om_token") !== null)
+                                    ? <>
+                                        <Link className="navbar-item" to="/rooms">Me!!</Link>
+                                        <button className="button is-outlined" onClick={() => {
+                                            localStorage.removeItem("om_token")
+                                            navigate('/login')
+                                        }}>Logout</button>
+                                    </>
+                                    : <>
+                                        <Link to="/register" className="button is-link">Register</Link>
+                                        <Link to="/login" className="button is-outlined">Login</Link>
+                                    </>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav >
     )
 }

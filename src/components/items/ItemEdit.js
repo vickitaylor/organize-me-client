@@ -53,57 +53,64 @@ export const ItemEdit = () => {
 
     return (
         <>
-            <h2>Edit Item</h2>
-            <form>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name" className="label">Item Name:</label>
-                        <input type="text" name="name" required autoFocus className="form-control" value={updateItem.name}
-                            onChange={changeItemState} />
-                    </div>
-                </fieldset>
+            <section className="section">
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="description" className="label">Item Description:</label>
-                        <textarea type="text" name="description" required className="form-control" value={updateItem.description}
-                            onChange={changeItemState} />
-                    </div>
-                </fieldset>
+                <article className="panel has-background-info-light">
+                    <h2 className="panel-heading has-background-info has-text-white">Edit Item</h2>
+                    <article className="p-3">
 
-                <fieldset>
-                    <div className="form-group">
-                        <label className="label" htmlFor="category">Category:</label>
-                        <select className="form-control" name="category" value={updateItem.category} required onChange={changeItemState}>
-                            <option value="0">Choose Category:</option>
-                            {categories.map(category => {
-                                return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>
-                            })}
-                        </select>
-                    </div>
-                </fieldset>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="name" className="label">Item Name:</label>
+                                <input type="text" name="name" required autoFocus className="form-control input" value={updateItem.name}
+                                    onChange={changeItemState} />
+                            </div>
+                        </fieldset>
 
-                <fieldset>
-                    <label htmlFor="picture" className="label">Upload Your Item Picture:</label><br />
-                    <input type="file" id="picture" onChange={createItemImageString} />
-                    <input type="hidden" name="picture" value={updateItem.picture} />
-                </fieldset>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="description" className="label">Item Description:</label>
+                                <textarea type="text" name="description" required className="form-control input" value={updateItem.description}
+                                    onChange={changeItemState} />
+                            </div>
+                        </fieldset>
 
-                <button type="submit" onClick={event => {
-                    event.preventDefault()
-                    const updatedItem = {
-                        name: updateItem.name,
-                        picture: updateItem.picture,
-                        description: updateItem.description,
-                        category: parseInt(updateItem.category)
-                    }
-                    editItem(itemId, updatedItem)
-                        .then(() => navigate(`/items/${itemId}`))
-                }}>Edit Item</button>
-                <button onClick={() => navigate(`/rooms`)}>
-                    Cancel
-                </button>
-            </form >
+                        <fieldset>
+                            <div className="form-group">
+                                <label className="label" htmlFor="category">Category:</label>
+                                <select className="form-control input" name="category" value={updateItem.category?.id} required onChange={changeItemState}>
+                                    <option value="0">Choose Category:</option>
+                                    {categories.map(category => {
+                                        return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>
+                                    })}
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <label htmlFor="picture" className="label">Upload Your Item Picture:</label>
+                            <input type="file" id="picture" onChange={createItemImageString} />
+                            <input type="hidden" name="picture" value={updateItem.picture} />
+                        </fieldset>
+
+                        <button className="button is-info mr-3" type="submit" onClick={event => {
+                            event.preventDefault()
+                            const updatedItem = {
+                                name: updateItem.name,
+                                picture: updateItem.picture,
+                                description: updateItem.description,
+                                category: parseInt(updateItem.category)
+                            }
+                            editItem(itemId, updatedItem)
+                                .then(() => navigate(`/items/${itemId}`))
+                        }}>Edit Item</button>
+
+                        <button className="button is-info is-inverted" onClick={() => navigate(`/items`)}>
+                            Cancel
+                        </button>
+                    </article>
+                </article>
+            </section>
         </>
     )
 }

@@ -31,50 +31,56 @@ export const EventEdit = () => {
 
     return (
         <>
-            <form>
-                <h2>Edit: {updateEvent.title}</h2>
+            <section className="section">
+                <article className="panel has-background-info-light">
+                    <h2 className="panel-heading has-background-info has-text-white">Edit {updateEvent.title}</h2>
+                    <article className="p-3">
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="title" className="label">Event Name:</label>
-                        <input type="text" name="title" required autoFocus className="form-control" value={updateEvent.title}
-                            onChange={changeEventState} />
-                    </div>
-                </fieldset>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="title" className="label">Event Name:</label>
+                                <input type="text" name="title" required autoFocus className="form-control input" value={updateEvent.title}
+                                    onChange={changeEventState} />
+                            </div>
+                        </fieldset>
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="date" className="label">Event Date:</label>
-                        <input type="date" name="date" required className="form-control" value={updateEvent.date}
-                            onChange={changeEventState} />
-                    </div>
-                </fieldset>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="date" className="label">Event Date:</label>
+                                <input type="date" name="date" required className="form-control input" value={updateEvent.date}
+                                    onChange={changeEventState} />
+                            </div>
+                        </fieldset>
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="time" className="label">Event Time:</label>
-                        <input type="time" name="time" required className="form-control" value={updateEvent.time}
-                            onChange={changeEventState} />
-                    </div>
-                </fieldset>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="time" className="label">Event Time:</label>
+                                <input type="time" name="time" required className="form-control input" value={updateEvent.time}
+                                    onChange={changeEventState} />
+                            </div>
+                        </fieldset>
 
-                <button type="submit" onClick={evt => {
-                    evt.preventDefault()
+                        <button className="button is-info mr-3" type="submit" onClick={evt => {
+                            evt.preventDefault()
 
-                    const copyEvent = {
-                        title: updateEvent.title,
-                        date: updateEvent.date,
-                        time: updateEvent.time
-                    }
-                    editEvent(eventId, copyEvent)
-                        .then(() => navigate(`/events`))
-                }}>Update</button>
+                            const copyEvent = {
+                                title: updateEvent.title,
+                                date: updateEvent.date,
+                                time: updateEvent.time
+                            }
+                            editEvent(eventId, copyEvent)
+                                .then(() => navigate(`/events`))
+                        }}>Update</button>
 
-                <button onClick={() => navigate(`/events`)}>
-                    Cancel
-                </button>
+                        <button className="button is-info is-inverted" onClick={() => navigate(`/events`)}>
+                            Cancel
+                        </button>
 
-            </form>
+                    </article>
+                </article>
+            </section>
         </>
     )
 }
+
+

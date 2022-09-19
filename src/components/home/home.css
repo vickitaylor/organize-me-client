@@ -1,13 +1,5 @@
-.home__page {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
 
 .home_pic {
-    flex-wrap: wrap;
     width: 15rem;
     height: 15rem;
 }

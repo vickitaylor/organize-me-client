@@ -38,20 +38,20 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Organize Me</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="title is-2 is-spaced">Organize Me</h1>
+                    <h2 className="subtitle">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputUsername"> Username </label>
-                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
+                        <label className="label" htmlFor="inputUsername"> Username </label>
+                        <input ref={username} type="username" id="username" className="form-control input" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
-                        <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
+                        <label className="label" htmlFor="inputPassword"> Password </label>
+                        <input ref={password} type="password" id="password" className="form-control input"  placeholder="Password" required />
                     </fieldset>
                     <fieldset style={{
                         textAlign: "center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <button className="button is-info" type="submit">Sign In</button>
                     </fieldset>
                 </form>
             </section>

@@ -33,35 +33,42 @@ export const RoomForm = () => {
     }
 
     return (
-        <form>
-            <h2>Create A New Room</h2>
+        <section className="section">
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name" className="label">Room Name:</label>
-                    <input type="text" name="name" required autoFocus className="form-control" value={room.name}
-                        onChange={changeRoomState} />
-                </div>
-            </fieldset>
+            <article className="panel has-background-info-light">
+                <h2 className="panel-heading has-background-info has-text-white">Create A New Room</h2>
+                <article className="p-3">
 
-            <fieldset>
-                <label htmlFor="picture" className="label">Upload Your Room Picture:</label><br />
-                <input type="file" id="picture" onChange={createRoomImageString} />
-                <input type="hidden" name="picture" value={room.picture} />
-            </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="name" className="label">Room Name:</label>
+                            <input type="text" name="name" required autoFocus className="form-control input" value={room.name}
+                                onChange={changeRoomState} />
+                        </div>
+                    </fieldset>
 
-            <button type="submit" onClick={event => {
-                event.preventDefault()
-                const newRoom = {
-                    name: room.name,
-                    picture: room.picture
-                }
-                createRoom(newRoom)
-                    .then(() => navigate("/rooms"))
-            }}>Create Room</button>
-            <button onClick={() => navigate(`/rooms`)}>
-                Cancel
-            </button>
-        </form>
+                    <fieldset>
+                        <label htmlFor="picture" className="label">Upload Your Room Picture:</label>
+                        <input type="file" id="picture" onChange={createRoomImageString} />
+                        <input type="hidden" name="picture" value={room.picture} />
+                    </fieldset>
+
+                    <button className="button is-info mr-3" type="submit" onClick={event => {
+                        event.preventDefault()
+                        const newRoom = {
+                            name: room.name,
+                            picture: room.picture
+                        }
+                        createRoom(newRoom)
+                            .then(() => navigate("/rooms"))
+                    }}>Create Room</button>
+
+                    <button className="button is-info is-inverted" onClick={() => navigate(`/rooms`)}>
+                        Cancel
+                    </button>
+
+                </article>
+            </article>
+        </section>
     )
 }

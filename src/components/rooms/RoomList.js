@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { getRoomsCurrentUser } from "../../managers/RoomManager"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { Room } from "./Room"
 
 
 export const RoomList = () => {
@@ -18,16 +19,19 @@ export const RoomList = () => {
 
     return (
         <>
-            <article>
+
+            <h2 className="title mx-4">My Rooms</h2>
+
+            <article className="columns is-multiline mx-4">
                 {
-                    rooms.map(room => {
-                        return <section key={`room--${room.id}`} className="room">
-                            <Link to={`${room.id}`} >{room.name}</Link>
-                        </section>
-                    })
+                    rooms.map((room) => <Room key={`room--${room.id}`}
+                        room={room}
+                    />
+                    )
                 }
-            </article>
-            <button onClick={evt => { navigate("create")}}>Create New Room</button>
+
+            </article >
+            <button className="button is-info m-4" onClick={evt => { navigate("create") }}>Create New Room</button>
         </>
     )
 }
