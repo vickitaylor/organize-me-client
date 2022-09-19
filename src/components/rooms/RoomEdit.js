@@ -44,35 +44,43 @@ export const RoomEdit = () => {
 
     return (
         <>
-            <h2>Edit Room</h2>
-            <form>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name" className="label">Room Name:</label>
-                        <input type="text" name="name" required autoFocus className="form-control" value={updateRoom.name}
-                            onChange={changeRoomState} />
-                    </div>
-                </fieldset>
+            <section className="section">
 
-                <fieldset>
-                    <label htmlFor="picture" className="label">Upload Your Room Picture:</label><br />
-                    <input type="file" id="picture" onChange={createRoomImageString} />
-                    <input type="hidden" name="picture" value={updateRoom.picture} />
-                </fieldset>
+                <article className="panel has-background-info-light">
+                    <h2 className="panel-heading has-background-info has-text-white">Edit {updateRoom.name}</h2>
+                    <article className="p-3">
 
-                <button type="submit" onClick={event => {
-                    event.preventDefault()
-                    const updatedRoom = {
-                        name: updateRoom.name,
-                        picture: updateRoom.picture
-                    }
-                    editRoom(roomId, updatedRoom)
-                        .then(() => navigate(`/rooms/${roomId}`))
-                }}>Edit Room</button>
-                <button onClick={() => navigate(`/rooms`)}>
-                    Cancel
-                </button>
-            </form >
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="name" className="label">Room Name:</label>
+                                <input type="text" name="name" required autoFocus className="form-control" value={updateRoom.name}
+                                    onChange={changeRoomState} />
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <label htmlFor="picture" className="label">Upload Your Room Picture:</label>
+                            <input type="file" id="picture" onChange={createRoomImageString} />
+                            <input type="hidden" name="picture" value={updateRoom.picture} />
+                        </fieldset>
+
+                        <button className="button is-info mr-3" type="submit" onClick={event => {
+                            event.preventDefault()
+                            const updatedRoom = {
+                                name: updateRoom.name,
+                                picture: updateRoom.picture
+                            }
+                            editRoom(roomId, updatedRoom)
+                                .then(() => navigate(`/rooms/${roomId}`))
+                        }}>Edit Room</button>
+
+                        <button className="button is-info is-inverted" onClick={() => navigate(`/rooms`)}>
+                            Cancel
+                        </button>
+
+                    </article>
+                </article>
+            </section>
         </>
     )
 }

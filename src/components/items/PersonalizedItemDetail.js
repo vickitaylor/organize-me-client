@@ -28,18 +28,18 @@ export const PersonalizedItemDetail = () => {
                     <div>{perItem.item?.description}</div>
                     <div>Purchased From: {perItem.purchased_from}</div>
                     <div>Price: {perItem.price}</div>
-                    <div>Purchased Date: {perItem.purchase_date}</div>
-                    <div>Expires: {perItem.expiration_date}</div>
+                    <div>Purchased Date: {perItem.purchased_date}</div>
+                    <div>Expires: {perItem.exp_date}</div>
                     <div>Quantity: {perItem.quantity}</div>
                     <div>Serial Number: {perItem.serial_num}</div>
                     <div>Status: {perItem.status?.title}</div>
 
 
-                    <button onClick={() => navigate(`/rooms/${perItem.room}`)}>
+                    <button className="button is-info is-inverted mr-3" onClick={() => navigate(`/rooms/${perItem.room}`)}>
                         Go Back Room
                     </button>
 
-                    <button onClick={evt => { navigate(`edit`) }}>Edit</button>
+                    <button className="button is-info" onClick={evt => { navigate(`edit`) }}>Edit</button>
                 </section>
                 <img className="picture" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
             </article>

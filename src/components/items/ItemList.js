@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { getAllItems } from "../../managers/ItemManager"
-
+import { Item } from "./Item"
 
 export const ItemList = () => {
 
@@ -16,16 +16,17 @@ export const ItemList = () => {
 
     return (
         <>
-        <button onClick={event => {navigate("new")}}>Create New Item</button>
-        <article>
-            {
-                items.map(item => {
-                    return <section key={`item--${item.id}`} className="item">
-                        <Link to={`${item.id}`}>{item.name}</Link>
-                    </section>
-                })
-            }
-        </article>
+            <h2 className="title mx-4">Item List</h2>
+            <button className="button is-info mb-4 mx-4" onClick={event => { navigate("new") }}>Create New Item</button>
+
+            <article className="columns is-multiline mx-4">
+                {
+                    items.map(item => <Item key={`item--${item.id}`}
+                        item={item}
+                    />
+                    )
+                }
+            </article>
         </>
     )
 }
