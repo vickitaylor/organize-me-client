@@ -72,3 +72,8 @@ fieldset {
 .container--login {
     text-align: center;
 }
+
+.picture {
+    width: 15rem;
+    height: 15rem;
+}

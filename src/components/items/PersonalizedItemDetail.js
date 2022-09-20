@@ -32,13 +32,13 @@ export const PersonalizedItemDetail = () => {
                             <div className="title is-5 is-child">Description:</div>
                             <div>{perItem.item?.description}</div> <br />
                             <div><strong>Details:</strong></div>
+                            <div>Status: {perItem.status?.title}</div>
                             <div>Purchased From: {perItem.purchased_from}</div>
-                            <div>Price: {perItem.price}</div>
+                            <div>Price: {perItem.format_price}</div>
+                            <div>Quantity: {perItem.quantity}</div>
                             <div>Purchased Date: {perItem.purchased_date}</div>
                             <div>Expires: {perItem.exp_date}</div>
-                            <div>Quantity: {perItem.quantity}</div>
                             <div>Serial Number: {perItem.serial_num}</div>
-                            <div>Status: {perItem.status?.title}</div>
                         </article>
 
                         <article className="tile is-child is-align-self-left">
@@ -55,7 +55,16 @@ export const PersonalizedItemDetail = () => {
                 </div>
             </div>
 
-            <img className="tile is-ancestor mx-2" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+            <div className="tile is-ancestor mx-2">
+                <div className="tile is-parent">
+                    <article className="tile is-child">
+                        <figure>
+                            <div className="subtitle">Receipt Picture:</div> <br />
+                            <img className="picture" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                        </figure>
+                    </article>
+                </div>
+            </div>
 
         </>
     )
