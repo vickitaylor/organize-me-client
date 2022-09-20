@@ -8,7 +8,7 @@ export const RoomDetail = ({ roomItem }) => {
             <section className="card has-background-info-light">
                 <div className="card-image">
                     <figure className="image image is-square">
-                        <img src={`http://localhost:8000${roomItem.item?.picture}`} alt={roomItem.item?.name} />
+                        <img src={`https://organize-me8.herokuapp.com${roomItem.item?.picture}`} alt={roomItem.item?.name} />
                     </figure>
                 </div>
 

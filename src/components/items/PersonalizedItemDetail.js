@@ -23,7 +23,7 @@ export const PersonalizedItemDetail = () => {
                 <div className="tile is-parent">
                     <article className="tile is-child">
                         <figure className="image is-3by2">
-                            <img className="picture" src={`http://localhost:8000${perItem.item?.picture}`} alt={perItem.item?.picture} />
+                            <img className="picture" src={`https://organize-me8.herokuapp.com${perItem.item?.picture}`} alt={perItem.item?.picture} />
                         </figure>
                     </article>
 
@@ -60,7 +60,7 @@ export const PersonalizedItemDetail = () => {
                     <article className="tile is-child">
                         <figure>
                             <div className="subtitle">Receipt Picture:</div> <br />
-                            <img className="picture" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                            <img className="picture" src={`https://organize-me8.herokuapp.com${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
                         </figure>
                     </article>
                 </div>

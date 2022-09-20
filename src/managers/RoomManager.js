@@ -1,5 +1,5 @@
 export const getRoomsCurrentUser = () => {
-    return fetch(`http://localhost:8000/rooms?user=${localStorage.getItem('current_user')}`, {
+    return fetch(`https://organize-me8.herokuapp.com/rooms?user=${localStorage.getItem('current_user')}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getRoomsCurrentUser = () => {
 }
 
 export const getSingleRoom = (roomId) => {
-    return fetch(`http://localhost:8000/rooms/${roomId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/rooms/${roomId}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -19,7 +19,7 @@ export const getSingleRoom = (roomId) => {
 }
 
 export const createRoom = (room) => {
-    return fetch(`http://localhost:8000/rooms`, {
+    return fetch(`https://organize-me8.herokuapp.com/rooms`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,
@@ -31,7 +31,7 @@ export const createRoom = (room) => {
 }
 
 export const editRoom = (roomId, room) => {
-    return fetch(`http://localhost:8000/rooms/${roomId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/rooms/${roomId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,

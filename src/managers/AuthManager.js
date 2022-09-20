@@ -1,5 +1,5 @@
 export const loginUser = (user) => {
-    return fetch(`http://localhost:8000/login`, {
+    return fetch(`https://organize-me8.herokuapp.com/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const registerUser = (user) => {
 }
 
 export const getCurrentUser = () => {
-    return fetch(`http://localhost:8000/organizers/${localStorage.getItem('current_user')}`, {
+    return fetch(`https://organize-me8.herokuapp.com/organizers/${localStorage.getItem('current_user')}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`

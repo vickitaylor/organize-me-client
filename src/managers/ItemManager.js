@@ -1,5 +1,5 @@
 export const getAllItems = () => {
-    return fetch(`http://localhost:8000/items`, {
+    return fetch(`https://organize-me8.herokuapp.com/items`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getAllItems = () => {
 }
 
 export const getSingleItem = (itemId) => {
-    return fetch(`http://localhost:8000/items/${itemId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/items/${itemId}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -19,7 +19,7 @@ export const getSingleItem = (itemId) => {
 }
 
 export const getSearchItems = (search) => {
-    return fetch(`http://localhost:8000/items?search=${search}`, {
+    return fetch(`https://organize-me8.herokuapp.com/items?search=${search}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -29,7 +29,7 @@ export const getSearchItems = (search) => {
 }
 
 export const getItemsByCategory = (id) => {
-    return fetch(`http://localhost:8000/items?category=${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/items?category=${id}`, {
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
         }
@@ -38,7 +38,7 @@ export const getItemsByCategory = (id) => {
 }
 
 export const createItem = (item) => {
-    return fetch(`http://localhost:8000/items`, {
+    return fetch(`https://organize-me8.herokuapp.com/items`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,
@@ -50,7 +50,7 @@ export const createItem = (item) => {
 }
 
 export const editItem = (itemId, item) => {
-    return fetch(`http://localhost:8000/items/${itemId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/items/${itemId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,
@@ -61,7 +61,7 @@ export const editItem = (itemId, item) => {
 }
 
 export const like = (itemId) => {
-    return fetch(`http://localhost:8000/items/${itemId}/like`, {
+    return fetch(`https://organize-me8.herokuapp.com/items/${itemId}/like`, {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,
@@ -72,7 +72,7 @@ export const like = (itemId) => {
 }
 
 export const unlike = (itemId) => {
-    return fetch(`http://localhost:8000/items/${itemId}/unlike`, {
+    return fetch(`https://organize-me8.herokuapp.com/items/${itemId}/unlike`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`

@@ -1,5 +1,5 @@
 export const getCurrentUserEvents = () => {
-    return fetch(`http://localhost:8000/events?user=${localStorage.getItem('current_user')}`, {
+    return fetch(`https://organize-me8.herokuapp.com/events?user=${localStorage.getItem('current_user')}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getCurrentUserEvents = () => {
 }
 
 export const getSearchEvents = (search) => {
-    return fetch(`http://localhost:8000/events?user=${localStorage.getItem('current_user')}&search=${search}`, {
+    return fetch(`https://organize-me8.herokuapp.com/events?user=${localStorage.getItem('current_user')}&search=${search}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -19,7 +19,7 @@ export const getSearchEvents = (search) => {
 }
 
 export const newEvent = (event) => {
-    return fetch(`http://localhost:8000/events`, {
+    return fetch(`https://organize-me8.herokuapp.com/events`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,
@@ -31,7 +31,7 @@ export const newEvent = (event) => {
 }
 
 export const getSingleEvent = (eventId) => {
-    return fetch(`http://localhost:8000/events/${eventId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/events/${eventId}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -41,7 +41,7 @@ export const getSingleEvent = (eventId) => {
 }
 
 export const editEvent = (eventId, event) => {
-    return fetch(`http://localhost:8000/events/${eventId}`, {
+    return fetch(`https://organize-me8.herokuapp.com/events/${eventId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,
@@ -52,7 +52,7 @@ export const editEvent = (eventId, event) => {
 }
 
 export const completeEvent = (eventId) => {
-    return fetch(`http://localhost:8000/events/${eventId}/complete`, {
+    return fetch(`https://organize-me8.herokuapp.com/events/${eventId}/complete`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,
@@ -62,7 +62,7 @@ export const completeEvent = (eventId) => {
 }
 
 export const deleteEvent = (id) => {
-    return fetch(`http://localhost:8000/events/${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/events/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`

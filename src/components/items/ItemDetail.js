@@ -40,7 +40,7 @@ export const ItemDetail = () => {
                 <div className="tile is-parent">
                     <article className="tile is-child">
                         <figure className="image is-3by2">
-                            <img className="picture" key={`pic--${item.picture}`} src={`http://localhost:8000${item.picture}`} alt={item.picture} />
+                            <img className="picture" key={`pic--${item.picture}`} src={`https://organize-me8.herokuapp.com${item.picture}`} alt={item.picture} />
                         </figure>
                     </article>
                 </div>

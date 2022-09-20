@@ -1,5 +1,5 @@
 export const getAllCategories = () => {
-    return fetch(`http://localhost:8000/categories`, {
+    return fetch(`https://organize-me8.herokuapp.com/categories`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getAllCategories = () => {
 }
 
 export const createCategory = (cat) => {
-    return fetch(`http://localhost:8000/categories`, {
+    return fetch(`https://organize-me8.herokuapp.com/categories`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,

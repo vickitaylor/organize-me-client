@@ -9,7 +9,7 @@ export const Item = ({ item }) => {
             <section className="card has-background-info-light">
                 <div className="card-image">
                     <figure className="image image is-square">
-                        <img src={`http://localhost:8000${item.picture}`} alt={item.name} />
+                        <img src={`https://organize-me8.herokuapp.com${item.picture}`} alt={item.name} />
                     </figure>
                 </div>
 

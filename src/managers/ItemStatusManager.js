@@ -1,5 +1,5 @@
 export const getAllStatuses = () => {
-    return fetch(`http://localhost:8000/status`, {
+    return fetch(`https://organize-me8.herokuapp.com/status`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getAllStatuses = () => {
 }
 
 export const createStatus = (status) => {
-    return fetch(`http://localhost:8000/status`, {
+    return fetch(`https://organize-me8.herokuapp.com/status`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,
