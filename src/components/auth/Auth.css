@@ -73,6 +73,11 @@ fieldset {
     text-align: center;
 }
 
+.rec-picture {
+    width: 15rem;
+    height: 15rem;
+}
+
 .picture {
     width: 15rem;
     height: 15rem;
