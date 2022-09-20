@@ -34,6 +34,7 @@ export const NavBar = () => {
                                 <Link className="navbar-item" to="/rooms">Rooms</Link>
                                 <Link className="navbar-item" to="/items">Items</Link>
                                 <Link className="navbar-item" to="/events">Events</Link>
+                                <Link className="navbar-item" to="/likes">Like List</Link>
                                 {
                                     (localStorage.getItem("is_staff") == "true")
                                         ? <Link className="navbar-item" to="/admin">Admin</Link>
