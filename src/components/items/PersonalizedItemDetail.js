@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getItemDetail } from "../../managers/ItemDetailManager"
+import { getReceipts, newReceipt } from "../../managers/ReceiptManager"
 
 
 export const PersonalizedItemDetail = () => {
@@ -8,13 +9,39 @@ export const PersonalizedItemDetail = () => {
     const navigate = useNavigate()
 
     const [perItem, setPerItem] = useState({})
+    const [receipts, setReceipts] = useState([])
+    const [updatedItem, setUpdateItem] = useState({
+        item_detail: "",
+        receipt_pic: ""
+    })
+
+    const loadItem = () => {
+        getItemDetail(itemPropId)
+            .then(data => setPerItem(data))
+        getReceipts(itemPropId)
+            .then(setReceipts)
+    }
 
     useEffect(() => {
-        getItemDetail(itemPropId)
-            .then(setPerItem)
+        loadItem()
     },
         [itemPropId]
     )
+
+    const getBase64 = (file, callback) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(file);
+    }
+
+    const createItemImageString = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is ", base64ImageString);
+            const copy = { ...updatedItem }
+            copy.receipt_pic = base64ImageString
+            setUpdateItem(copy)
+        })
+    }
 
     return (
         <>
@@ -51,6 +78,23 @@ export const PersonalizedItemDetail = () => {
                                 </p>
                             </div>
                         </article>
+
+                        <fieldset>
+                            <label htmlFor="receipt_pic" className="label">Upload A Picture of the Receipt:</label>
+                            <input type="file" id="receipt_pic" onChange={createItemImageString} />
+                            <input type="hidden" name="receipt_pic" value={updatedItem.receipt_pic} />
+                        </fieldset>
+                        <p>
+                            <button className="button is-info mr-3" type="submit" onClick={event => {
+                                event.preventDefault()
+                                const updateItem = {
+                                    item_detaiL: parseInt(itemPropId),
+                                    receipt_pic: updatedItem.receipt_pic,
+                                }
+                                newReceipt(updateItem)
+                                    .then(() => loadItem())
+                            }}>Save Receipt</button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -60,7 +104,11 @@ export const PersonalizedItemDetail = () => {
                     <article className="tile is-child">
                         <figure>
                             <div className="subtitle">Receipt Picture:</div> <br />
-                            <img className="rec-picture" src={`http://localhost:8000${perItem.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                            {
+                                receipts.map(receipt => {
+                                    return <img className="rec-picture" key={`receipt--${receipt.id}`} src={`http://localhost:8000${receipt.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                                })
+                            }
                         </figure>
                     </article>
                 </div>

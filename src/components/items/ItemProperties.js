@@ -20,7 +20,6 @@ export const ItemProperties = () => {
                     item: res.item,
                     room: res.room,
                     quantity: res.quantity,
-                    receipt_pic: res.receipt_pic,
                     purchased_from: res.purchased_from,
                     price: res.price,
                     status: res.status,
@@ -37,21 +36,6 @@ export const ItemProperties = () => {
         const itemCopy = { ...updateItem }
         itemCopy[event.target.name] = event.target.value
         setUpdateItem(itemCopy)
-    }
-
-    const getBase64 = (file, callback) => {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => callback(reader.result));
-        reader.readAsDataURL(file);
-    }
-
-    const createItemImageString = (event) => {
-        getBase64(event.target.files[0], (base64ImageString) => {
-            console.log("Base64 of file is ", base64ImageString);
-            const copy = { ...updateItem }
-            copy.receipt_pic = base64ImageString
-            setUpdateItem(copy)
-        })
     }
 
     useEffect(() => {
@@ -86,7 +70,7 @@ export const ItemProperties = () => {
                         <fieldset>
                             <label htmlFor="status" className="label">Change Status:</label>
                             <div className="select">
-                                <select name="status"  value={updateItem.status?.id}
+                                <select name="status" value={updateItem.status?.id}
                                     onChange={changeItemState}>
                                     <option value="0">Pick A New Status:</option>
                                     {
@@ -153,22 +137,14 @@ export const ItemProperties = () => {
                             </div>
                         </fieldset>
 
-                        <fieldset>
-                            <label htmlFor="receipt_pic" className="label">Upload A Receipt_pic of the Receipt:</label>
-                            <input type="file" id="receipt_pic" onChange={createItemImageString} />
-                            <input type="hidden" name="receipt_pic" value={updateItem.receipt_pic} />
-                        </fieldset>
-
-
                         <button className="button is-info mr-3" type="submit" onClick={event => {
                             event.preventDefault()
                             const updatedItem = {
                                 room: parseInt(updateItem.room),
                                 quantity: parseInt(updateItem.quantity),
-                                receipt_pic: updateItem.receipt_pic,
                                 purchased_from: updateItem.purchased_from,
                                 price: parseFloat(updateItem.price),
-                                status: parseInt(updateItem.status),
+                                status: parseInt(updateItem.status?.id),
                                 serial_num: updateItem.serial_num,
                                 purchase_date: updateItem.purchase_date,
                                 expiration_date: updateItem.expiration_date
