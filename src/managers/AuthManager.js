@@ -11,7 +11,7 @@ export const loginUser = (user) => {
 }
 
 export const registerUser = (user) => {
-    return fetch(`http://127.0.0.1:8000/register`, {
+    return fetch(`https://organize-me8.herokuapp.com/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
