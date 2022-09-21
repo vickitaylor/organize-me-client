@@ -19,6 +19,9 @@ import { ItemProperties } from "../components/items/ItemProperties"
 import { PersonalizedItemDetail } from "../components/items/PersonalizedItemDetail"
 import { AdminView } from "../components/admin/AdminView"
 import { LikeList } from "../components/likes/LikeList"
+import { UserList } from "../components/users/UserList"
+import { RoomListFriend } from "../components/rooms/RoomListFriend"
+import { EventListFriend } from "../components/events/EventListFriend"
 
 export const ApplicationViews = () => {
     return <>
@@ -42,6 +45,9 @@ export const ApplicationViews = () => {
                 <Route path="/details/:itemPropId" element={< PersonalizedItemDetail />} />
                 <Route path="/admin" element={< AdminView />} />
                 <Route path="/likes" element={< LikeList />} />
+                <Route path="/users" element={< UserList />} />
+                <Route path="/rooms/friend/:userId" element={< RoomListFriend />} />
+                <Route path="/events/friend/:userId" element={< EventListFriend />} />
             </Route>
         </Routes>
     </>

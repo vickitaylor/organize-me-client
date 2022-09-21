@@ -103,10 +103,10 @@ export const PersonalizedItemDetail = () => {
                 <div className="tile is-parent">
                     <article className="tile is-child">
                         <figure>
-                            <div className="subtitle">Receipt Picture:</div> <br />
+                            <div className="subtitle">Receipt Pictures:</div> <br />
                             {
                                 receipts.map(receipt => {
-                                    return <img className="rec-picture" key={`receipt--${receipt.id}`} src={`http://localhost:8000${receipt.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                                    return <img className="rec-picture mx-4" key={`receipt--${receipt.id}`} src={`http://localhost:8000${receipt.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
                                 })
                             }
                         </figure>

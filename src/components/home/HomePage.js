@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getCurrentUser } from "../../managers/AuthManager"
+import { getFriends} from "../../managers/UserManager"
+import { Friends } from "./Friends"
 import "./home.css"
 
 export const HomePage = () => {
 
     const [user, setUser] = useState({})
+    const [approvedUsers, setApprovedUsers] = useState([])
 
     useEffect(() => {
         getCurrentUser()
             .then(setUser)
+        getFriends()
+            .then(data => setApprovedUsers(data))
     }, [])
+
+
 
     return (
         <>
@@ -19,7 +26,7 @@ export const HomePage = () => {
 
                 <article className="mx-4 columns is-mobile has-text-centered" >
 
-                    <Link to="/rooms" className="column ">
+                    <Link to="/rooms" className="column">
                         <img src="images/house.jpg" alt="rooms" className="home_pic" />
                         <div className="home_link">Go To Rooms</div>
                     </Link>
@@ -34,6 +41,16 @@ export const HomePage = () => {
                         <div className="home_link">Go To Events</div>
                     </Link>
 
+                </article>
+
+                <article className="mt-5 columns is-mobile has-text-centered" >
+
+                    {
+                        approvedUsers.map(user => <Friends key={`user--${user.id}`}
+                            user={user}
+                        />
+                        )
+                    }
                 </article>
             </section>
         </>

@@ -18,7 +18,7 @@ export const ItemEdit = () => {
                     name: res.name,
                     picture: res.picture,
                     description: res.description,
-                    category: res.category
+                    category: res.category.id
                 }
                 setUpdateItem(item)
             })
@@ -78,7 +78,7 @@ export const ItemEdit = () => {
                         <fieldset>
                             <label className="label" htmlFor="category">Category:</label>
                             <div className="select">
-                                <select name="category" value={updateItem.category?.id} required onChange={changeItemState}>
+                                <select name="category" value={updateItem.category} required onChange={changeItemState}>
                                     <option value="0">Choose Category:</option>
                                     {categories.map(category => {
                                         return <option value={category.id} key={`category--${category.id}`}>{category.name}</option>

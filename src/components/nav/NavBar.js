@@ -35,6 +35,7 @@ export const NavBar = () => {
                                 <Link className="navbar-item" to="/items">Items</Link>
                                 <Link className="navbar-item" to="/events">Events</Link>
                                 <Link className="navbar-item" to="/likes">Like List</Link>
+                                <Link className="navbar-item" to="/users">Users</Link>
                                 {
                                     (localStorage.getItem("is_staff") == "true")
                                         ? <Link className="navbar-item" to="/admin">Admin</Link>
@@ -52,7 +53,6 @@ export const NavBar = () => {
                             {
                                 (localStorage.getItem("om_token") !== null)
                                     ? <>
-                                        <Link className="navbar-item" to="/rooms">Me!!</Link>
                                         <button className="button is-outlined" onClick={() => {
                                             localStorage.removeItem("om_token")
                                             localStorage.removeItem("is_staff")
