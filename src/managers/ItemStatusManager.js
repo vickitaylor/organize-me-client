@@ -21,7 +21,7 @@ export const createStatus = (status) => {
 }
 
 export const deleteStatus = (id) => {
-    return fetch(`http://localhost:8000/status/${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/status/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`

@@ -31,7 +31,7 @@ export const RoomDetailsFriend = () => {
                             <section className="card has-background-info-light">
                                 <div className="card-image">
                                     <figure className="image image is-square">
-                                        <img src={`http://localhost:8000${item.item?.picture}`} alt={item.item?.name} />
+                                        <img src={`https://organize-me8.herokuapp.com${item.item?.picture}`} alt={item.item?.name} />
                                     </figure>
                                 </div>
 

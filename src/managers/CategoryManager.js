@@ -21,7 +21,7 @@ export const createCategory = (cat) => {
 }
 
 export const deleteCategory = (id) => {
-    return fetch(`http://localhost:8000/categories/${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/categories/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`

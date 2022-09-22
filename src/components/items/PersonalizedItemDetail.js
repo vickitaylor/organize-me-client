@@ -55,7 +55,7 @@ export const PersonalizedItemDetail = () => {
                 <div className="tile is-parent">
                     <article className="tile is-child">
                         <figure className="image">
-                            <img className="picture" src={`http://localhost:8000${perItem.item?.picture}`} alt={perItem.item?.picture} />
+                            <img className="picture" src={`https://organize-me8.herokuapp.com${perItem.item?.picture}`} alt={perItem.item?.picture} />
                         </figure>
                     </article>
 
@@ -119,7 +119,7 @@ export const PersonalizedItemDetail = () => {
                             <div className="subtitle">Receipt Pictures:</div> <br />
                             {
                                 receipts.map(receipt => {
-                                    return <img className="rec-picture mx-4" key={`receipt--${receipt.id}`} src={`http://localhost:8000${receipt.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
+                                    return <img className="rec-picture mx-4" key={`receipt--${receipt.id}`} src={`https://organize-me8.herokuapp.com${receipt.receipt_pic}`} alt={`${perItem.item?.name} receipt`} />
                                 })
                             }
                         </figure>

@@ -1,5 +1,5 @@
 export const getReceipts = (id) => {
-    return fetch(`http://localhost:8000/receipts?item_detail=${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/receipts?item_detail=${id}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -10,7 +10,7 @@ export const getReceipts = (id) => {
 
 
 export const newReceipt = (pic) => {
-    return fetch(`http://localhost:8000/receipts`, {
+    return fetch(`https://organize-me8.herokuapp.com/receipts`, {
         method: "POST",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`,

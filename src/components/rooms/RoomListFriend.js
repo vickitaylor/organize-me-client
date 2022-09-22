@@ -27,7 +27,7 @@ export const RoomListFriend = () => {
                             <section className="card has-background-info-light">
                                 <div className="card-image">
                                     <figure className="image image is-4by3">
-                                        <img src={`http://localhost:8000${room.picture}`} alt={room.name} />
+                                        <img src={`https://organize-me8.herokuapp.com${room.picture}`} alt={room.name} />
                                     </figure>
                                 </div>
 

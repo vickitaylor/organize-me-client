@@ -62,7 +62,7 @@ export const editItemDetail = (id, detail) => {
 }
 
 export const deleteItemDetail = (id) => {
-    return fetch(`http://localhost:8000/item_details/${id}`, {
+    return fetch(`https://organize-me8.herokuapp.com/item_details/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`

@@ -1,5 +1,5 @@
 export const getAllUsers = () => {
-    return fetch(`http://localhost:8000/users`, {
+    return fetch(`https://organize-me8.herokuapp.com/users`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -9,7 +9,7 @@ export const getAllUsers = () => {
 }
 
 export const getFriends = () => {
-    return fetch(`http://localhost:8000/users/friends`, {
+    return fetch(`https://organize-me8.herokuapp.com/users/friends`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -19,7 +19,7 @@ export const getFriends = () => {
 }
 
 export const getSearchUsers = (search) => {
-    return fetch(`http://localhost:8000/users?search=${search}`, {
+    return fetch(`https://organize-me8.herokuapp.com/users?search=${search}`, {
         method: "GET",
         headers: {
             'Authorization': `Token ${localStorage.getItem('om_token')}`
@@ -29,7 +29,7 @@ export const getSearchUsers = (search) => {
 }
 
 export const approve = (userId) => {
-    return fetch(`http://localhost:8000/users/${userId}/approve`, {
+    return fetch(`https://organize-me8.herokuapp.com/users/${userId}/approve`, {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`,
@@ -40,7 +40,7 @@ export const approve = (userId) => {
 }
 
 export const remove = (userId) => {
-    return fetch(`http://localhost:8000/users/${userId}/remove`, {
+    return fetch(`https://organize-me8.herokuapp.com/users/${userId}/remove`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("om_token")}`
