@@ -47,7 +47,8 @@ export const EventList = () => {
             <h2 className="title is-2 is-spaced mx-4 pt-2">My Events</h2>
 
             <button className="button is-info mx-4" onClick={(() => navigate(`new`))}>New Event</button>
-            
+            <button className="button is-info mx-4" onClick={(() => navigate(`complete`))}>Completed Events</button>
+
             <div className="pt-4 px-4">
                 <input
                     className="input search"
@@ -65,7 +66,7 @@ export const EventList = () => {
             <article className="section">
                 {
                     filteredEvents.map(event => {
-                        return <section key={`event--${event.id}`} className="event">
+                        return <section key={`event--${event.id}`}>
                             {
                                 (event.completed !== true)
                                     ? <ul >

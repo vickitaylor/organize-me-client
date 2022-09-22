@@ -49,7 +49,7 @@ export const ItemForm = () => {
                 <article className="p-3">
 
                     <fieldset>
-                        <div className="">
+                        <div>
                             <label htmlFor="name" className="label">Item Name:</label>
                             <input type="text" name="name" required autoFocus className=" input" value={item.name}
                                 onChange={changeItemState} />
@@ -57,7 +57,7 @@ export const ItemForm = () => {
                     </fieldset>
 
                     <fieldset>
-                        <div className="">
+                        <div>
                             <label htmlFor="description" className="label">Item Description:</label>
                             <textarea type="text" name="description" required className="textarea" value={item.description}
                                 onChange={changeItemState} />

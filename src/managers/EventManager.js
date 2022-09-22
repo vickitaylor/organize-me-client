@@ -8,6 +8,17 @@ export const getCurrentUserEvents = () => {
         .then(res => res.json())
 }
 
+export const getFriendEvents = (id) => {
+    return fetch(`http://localhost:8000/events?user=${id}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        },
+    })
+        .then(res => res.json())
+}
+
+
 export const getSearchEvents = (search) => {
     return fetch(`https://organize-me8.herokuapp.com/events?user=${localStorage.getItem('current_user')}&search=${search}`, {
         method: "GET",

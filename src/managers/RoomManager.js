@@ -8,6 +8,16 @@ export const getRoomsCurrentUser = () => {
         .then(res => res.json())
 }
 
+export const getRoomsFriendUser = (id) => {
+    return fetch(`http://localhost:8000/rooms?user=${id}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Token ${localStorage.getItem('om_token')}`
+        },
+    })
+        .then(res => res.json())
+}
+
 export const getSingleRoom = (roomId) => {
     return fetch(`https://organize-me8.herokuapp.com/rooms/${roomId}`, {
         method: "GET",

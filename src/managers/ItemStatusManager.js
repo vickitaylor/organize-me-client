@@ -19,3 +19,12 @@ export const createStatus = (status) => {
     })
         .then(res => res.json())
 }
+
+export const deleteStatus = (id) => {
+    return fetch(`http://localhost:8000/status/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`
+        }
+    })
+}

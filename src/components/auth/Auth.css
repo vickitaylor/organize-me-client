@@ -73,7 +73,21 @@ fieldset {
     text-align: center;
 }
 
+.rec-picture {
+    width: 15rem;
+    height: 15rem;
+}
+
 .picture {
     width: 15rem;
     height: 15rem;
+}
+
+.justify {
+    justify-content: space-evenly;
+}
+
+.home_pic {
+    width: 20rem;
+    height: 20rem;
 }
