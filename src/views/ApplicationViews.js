@@ -22,6 +22,7 @@ import { LikeList } from "../components/likes/LikeList"
 import { UserList } from "../components/users/UserList"
 import { RoomListFriend } from "../components/rooms/RoomListFriend"
 import { EventListFriend } from "../components/events/EventListFriend"
+import { EventCompleteList } from "../components/events/EventCompleteList"
 
 export const ApplicationViews = () => {
     return <>
@@ -48,6 +49,7 @@ export const ApplicationViews = () => {
                 <Route path="/users" element={< UserList />} />
                 <Route path="/rooms/friend/:userId" element={< RoomListFriend />} />
                 <Route path="/events/friend/:userId" element={< EventListFriend />} />
+                <Route path="/events/complete" element={< EventCompleteList />} />
             </Route>
         </Routes>
     </>
