@@ -42,7 +42,7 @@ export const HomePage = () => {
 
                 </article>
 
-                <article className="mt-5 columns is-mobile has-text-centered" >
+                <article className="mt-5 columns is-mobile has-text-centered is-multiline" >
 
                     {
                         approvedUsers.map(user => <Friends key={`user--${user.id}`}

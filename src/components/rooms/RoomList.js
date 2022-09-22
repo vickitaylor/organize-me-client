@@ -21,8 +21,9 @@ export const RoomList = () => {
         <>
 
             <h2 className="title mx-4">My Rooms</h2>
+            <button className="button is-info m-4" onClick={evt => { navigate("create") }}>Create New Room</button>
 
-            <article className="columns is-multiline ">
+            <article className="columns is-multiline mx-4">
                 {
                     rooms.map((room) => <Room key={`room--${room.id}`}
                         room={room}
@@ -31,7 +32,6 @@ export const RoomList = () => {
                 }
 
             </article >
-            <button className="button is-info m-4" onClick={evt => { navigate("create") }}>Create New Room</button>
         </>
     )
 }

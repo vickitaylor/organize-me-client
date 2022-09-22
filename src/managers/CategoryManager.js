@@ -19,3 +19,12 @@ export const createCategory = (cat) => {
     })
         .then(res => res.json())
 }
+
+export const deleteCategory = (id) => {
+    return fetch(`http://localhost:8000/categories/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`
+        }
+    })
+}
