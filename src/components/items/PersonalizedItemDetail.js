@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { getItemDetail } from "../../managers/ItemDetailManager"
+import { deleteItemDetail, getItemDetail } from "../../managers/ItemDetailManager"
 import { getReceipts, newReceipt } from "../../managers/ReceiptManager"
 
 
@@ -27,6 +27,11 @@ export const PersonalizedItemDetail = () => {
     },
         [itemPropId]
     )
+
+    const handleDelete = (id) => {
+        deleteItemDetail(itemPropId)
+            .then(() => navigate(`/rooms/${perItem.room}`))
+    }
 
     const getBase64 = (file, callback) => {
         const reader = new FileReader();
@@ -75,7 +80,14 @@ export const PersonalizedItemDetail = () => {
                                         Go Back Room
                                     </button>
                                     <button className="button is-info" onClick={evt => { navigate(`edit`) }}>Edit</button>
+                                    <button className="button is-danger" onClick={() => {
+                                        const confirmBox = window.confirm("Do you want to delete this event?")
+                                        if (confirmBox)
+                                            handleDelete(perItem.id)
+                                    }}>
+                                        Delete</button>
                                 </p>
+
                             </div>
                         </article>
 
@@ -97,7 +109,7 @@ export const PersonalizedItemDetail = () => {
                         </p>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <div className="tile is-ancestor mx-2">
                 <div className="tile is-parent">

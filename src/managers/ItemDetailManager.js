@@ -47,7 +47,7 @@ export const createItemDetail = (item) => {
         },
         body: JSON.stringify(item)
     })
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const editItemDetail = (id, detail) => {
@@ -58,5 +58,14 @@ export const editItemDetail = (id, detail) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(detail)
-    }) 
+    })
+}
+
+export const deleteItemDetail = (id) => {
+    return fetch(`http://localhost:8000/item_details/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("om_token")}`
+        }
+    })
 }
