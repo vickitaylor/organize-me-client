@@ -22,7 +22,7 @@ export const RoomList = () => {
 
             <h2 className="title mx-4">My Rooms</h2>
 
-            <article className="columns is-multiline mx-4">
+            <article className="columns is-multiline ">
                 {
                     rooms.map((room) => <Room key={`room--${room.id}`}
                         room={room}

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { getCurrentUser } from "../../managers/AuthManager"
 import { getFriends} from "../../managers/UserManager"
 import { Friends } from "./Friends"
-import "./home.css"
 
 export const HomePage = () => {
 

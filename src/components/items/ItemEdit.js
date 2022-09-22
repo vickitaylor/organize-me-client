@@ -56,7 +56,7 @@ export const ItemEdit = () => {
             <section className="section">
 
                 <article className="panel has-background-info-light">
-                    <h2 className="panel-heading has-background-info has-text-white">Edit Item</h2>
+                    <h2 className="panel-heading has-background-info has-text-white">Edit {updateItem.name}</h2>
                     <article className="p-3">
 
                         <fieldset>

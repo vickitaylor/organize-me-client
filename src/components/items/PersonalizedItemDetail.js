@@ -71,16 +71,17 @@ export const PersonalizedItemDetail = () => {
                             <div>Purchased Date: {perItem.purchased_date}</div>
                             <div>Expires: {perItem.exp_date}</div>
                             <div>Serial Number: {perItem.serial_num}</div>
+                            <div>Comments: {perItem.description}</div>
                         </article>
 
                         <article className="tile is-child is-align-self-left">
                             <div className="field is-grouped">
                                 <p className="control">
-                                    <button className="button is-info is-inverted mr-3" onClick={() => navigate(`/rooms/${perItem.room}`)}>
+                                    <button className="button is-info is-inverted mr-4" onClick={() => navigate(`/rooms/${perItem.room}`)}>
                                         Go Back Room
                                     </button>
                                     <button className="button is-info" onClick={evt => { navigate(`edit`) }}>Edit</button>
-                                    <button className="button is-danger" onClick={() => {
+                                    <button className="button is-danger mx-4" onClick={() => {
                                         const confirmBox = window.confirm("Do you want to delete this event?")
                                         if (confirmBox)
                                             handleDelete(perItem.id)
