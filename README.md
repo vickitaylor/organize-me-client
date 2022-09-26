@@ -1,71 +1,28 @@
-# Getting Started with Create React App
+# Organize Me
+## Full Stack Capstone for Nashville Software School
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Organize Me allows the user to track items in their household.  Users can create rooms and items, and store the items in a room, and then add details for that specific item in that room and upload a copy of the receipt for insurance or warranty purposes. The app also allows users to keep track of important dates and to do items, and after an event was completed, they can view their completed events.  Users can also let other users view their events and rooms when they give selected users access.  
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+1) Clone the repository ` git clone git@github.com:vickitaylor/organize-me-client.git`
+2) cd into the corresponding directory `cd organize-me-client`
+3) `npm install` 
+4) Server side of for the project located at [Server Side LINK](https://github.com/vickitaylor/organize-me-server) with instructions to clone and run
+5) `npm start`
 
-### `npm start`
+### Tech Stack
+* HTML
+* CSS
+* JavaScript
+* React
+* Python
+* Django
+* Git
+* Github
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Intial Wireframe
+[Intial Wireframe designed in Miro](https://miro.com/welcomeonboard/akV1cFBncUlNT1hRRnhZU2tGQ215WXNvWXlKblRpZ0FEbnJCREU5d1E5QnBtUjBQSXpiRTN3N2hjcFZIZk56Z3wzNDU4NzY0NTIzNTY5ODA2MzIzfDI=?share_link_id=71848341220)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# organize-me-client
+### Intial ERD
+[Intial ERD](https://drawsql.app/teams/nss-44/diagrams/organize-me)
